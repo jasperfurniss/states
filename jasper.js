@@ -19,8 +19,7 @@ var LocationsCollection = Backbone.Collection.extend({
 // Results View //
 
 var ResultsView = Backbone.View.extend({
-template: _.template($('[data-template-name=results-template]').text()),
-el: '.land',
+el: $('.land'),
 events: {
   'click .land': 'renderLocations',
   'click': 'renderSC'
@@ -44,8 +43,8 @@ events: {
 // Location View //
 
 var LocationView = Backbone.View.extend({
-  template: _.template($('[data-template-name=results-template]').text()),
-  el: '.results',
+  template: _.template($('[data-template-name=item-detail-template]').html()),
+  el: $('.results'),
   render: function(){
       this.$el.append(this.model);
     },
