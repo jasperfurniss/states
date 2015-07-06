@@ -1,32 +1,22 @@
 (function(){
 
-//
-// Location Model
-//
+/// Location Model ///
 
 var LocationModel = Backbone.Model.extend({
   idAttribute: 'objectId'
 });
 
-//
-// Locations Collection
-//
+/// Locations Collection ///
 
 var LocationsCollection = Backbone.Collection.extend({
   model: LocationModel,
-
   url: 'https://api.parse.com/1/classes/locations',
-
   parse: function(response){
     return response.results;
   }
 });
 
-
-
-//
-// Results View
-//
+// Results View //
 
 var ResultsView = Backbone.View.extend({
 template: _.template($('[data-template-name=results-template]').text()),
@@ -51,26 +41,17 @@ events: {
   }
 });
 
-
-
-
-//
-// Location View
-//
+// Location View //
 
 var LocationView = Backbone.View.extend({
   template: _.template($('[data-template-name=results-template]').text()),
   el: '.results',
-
   render: function(){
       this.$el.append(this.model);
     },
 });
 
-
-//
-// App Router
-//
+// App Router //
 
 var AppRouter = Backbone.Router.extend({
   routes: {
@@ -87,12 +68,9 @@ var AppRouter = Backbone.Router.extend({
     this.locations.fetch();
     console.log(this.locations);
   }
-
 });
 
-//
-// Config
-//
+// Config //
 
 $.ajaxSetup({
   headers: {
@@ -101,9 +79,8 @@ $.ajaxSetup({
   }
 });
 
-//
-// Glue Code
-//
+
+// Glue Code //
 $(document).ready(function(){
   window.router = new AppRouter();
   Backbone.history.start();
