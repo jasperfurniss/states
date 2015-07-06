@@ -1,0 +1,14 @@
+/*
+.item-result {
+  float: right;
+}
+.content hr, .content p, .content ul, .content ol, .content dl, .content pre, .content blockquote, .content address {
+  margin: 0.8em;
+}
+ */
+ object.svg-content {
+   margin-left: -7%;
+ }
+ .item-result {
+   float: right;
+ }
